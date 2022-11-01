@@ -71,3 +71,8 @@ function byHours(a,b) {
 const combinedVolunteers = combineVolunteers(
   [].concat(wolfPointVolunteers, raccoonMeadowsVolunteers)
 );
+
+//for testing these functions
+//the following will combine the records of each park, add the total verified hours of each volunteer, and print that sorted by most hours to the console
+const result = calculateHours(combinedVolunteers);
+console.log(result.sort(byHours));
