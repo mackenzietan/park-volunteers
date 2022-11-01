@@ -51,7 +51,9 @@ function calculateHours(volunteers: Volunteers[]) {
     let hours = 0;
 
     volunteer.activities.forEach((activity) => {
-
+      if (isVerified(activity.verified) === true) {
+        hours += getHours(activity);
+      }
     });
 
     return {
