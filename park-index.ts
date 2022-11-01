@@ -21,7 +21,17 @@ type Volunteers = {
 function combineVolunteers(
   volunteers: (RaccoonMeadowsVolunteers | WolfPointVolunteers)[]
 ) {
-
+  return volunteers.map((volunteer) => {
+    let id = volunteer.id; //declare id as the id key from mapping volunteers to 'volunteer'
+    if (typeof id === 'string') { //typeguard
+      id = parseInt(id,10);
+    }
+    return { //return same values, but now in relation to 'volunteer' object
+      id: id,
+      name: volunteer.name,
+      activities: volunteer.activities
+    }
+  })
 }
 
 function calculateHours(volunteers: Volunteers[]) {
